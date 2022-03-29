@@ -7,6 +7,7 @@ package com.yp.gulimall.coupon;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
@@ -15,6 +16,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author pan
  * @date 2022/3/28 21:02
  */
+
 @SpringBootApplication
 @EnableDiscoveryClient
 public class GulimallCouponApplication {
