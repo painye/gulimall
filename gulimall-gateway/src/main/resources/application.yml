@@ -10,3 +10,14 @@ spring:
           uri: https://www.qq.com
           predicates:
             - Query=url, qq
+
+        - id: admin_route
+          uri: lb://renren-fast    # 以负载均衡的方式转发到//localhost:8080
+          predicates:
+            - Path=/api/**          # 匹配前端发送过来的请求路径
+          filters:
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
+
+## 前端项目发送的请求都带上api
+##     http://localhost:88/api/captcha.jpg
+##     http://localhost:8080/renren-fast/captcha.jpg
