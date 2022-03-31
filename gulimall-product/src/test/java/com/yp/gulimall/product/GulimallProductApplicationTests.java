@@ -32,6 +32,7 @@ class GulimallProductApplicationTests {
 //
 
 
+
         // 填写Bucket名称，例如examplebucket。
         String bucketName = "gulimall-painye";
         // 填写Object完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。
