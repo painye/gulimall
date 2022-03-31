@@ -11,6 +11,13 @@ spring:
           predicates:
             - Query=url, qq
 
+        - id: product_route
+          uri: lb://gulimall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
         - id: admin_route
           uri: lb://renren-fast    # 以负载均衡的方式转发到//localhost:8080
           predicates:
@@ -18,13 +25,6 @@ spring:
           filters:
             - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
 
-
-        - id: product_route
-          uri: lb://gulimall-product
-          predicates:
-            - Path=/api/product/**
-          filters:
-            - RewritePath=/api/(?<segment>.*),/$\{segment}
 ## 前端项目发送的请求都带上api
 ##  http://localhost:88/api/captcha.jpg  http://localhost:8080/renren-fast/captcha.jpg
 ##  http://localhost:88/api/product/category/list/tree     http://localhost:10001/product/category/list/tree

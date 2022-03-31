@@ -1,6 +1,6 @@
 package com.yp.gulimall.product.controller;
 
-import java.util.Arrays;
+import  java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -39,6 +39,12 @@ public class CategoryController {
     public R list(@RequestParam Map<String, Object> params){
         List<CategoryEntity> entities= categoryService.listWithTree();
         return R.ok().put("data", entities);
+    }
+
+    @RequestMapping("/all")
+    public R List(){
+        List<CategoryEntity> list = categoryService.list(null);
+        return R.ok().put("data", list);
     }
 
 
@@ -81,8 +87,10 @@ public class CategoryController {
     @RequestMapping("/delete")
     //@RequiresPermissions("product:category:delete")
     public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
+		//categoryService.removeByIds(Arrays.asList(catIds));
+        //1、检查当前删除的菜单，是否被别的地方引用
 
+        categoryService.removeMenuByIds(Arrays.asList(catIds));
         return R.ok();
     }
 
