@@ -2,12 +2,18 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://192.168.86.5:3308/gulimall_pms
+    url: jdbc:mysql://192.168.86.5:3308/gulimall_pms?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+    # 阿里云OSS 对象存储上传文件的一些设置
+    alicloud:
+      access-key: LTAI5tG8BC4ighSTF8M9fVNz
+      secret-key: 0k0HVwkkoGCLSwSe4QE3TLhBpSvHAj
+      oss:
+        endpoint: oss-cn-shanghai.aliyuncs.com
 
   application:
     name: gulimall-product
