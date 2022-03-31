@@ -10,10 +10,7 @@ spring:
         server-addr: 127.0.0.1:8848
     # 阿里云OSS 对象存储上传文件的一些设置
     alicloud:
-      access-key: LTAI5tG8BC4ighSTF8M9fVNzw
-      secret-key: 0k0HVwkkoGCLSwSe4QE3TLhBpSvHAqj
-      oss:
-        endpoint: oss-cn-shanghai.aliyuncs.com
+
 
   application:
     name: gulimall-product
