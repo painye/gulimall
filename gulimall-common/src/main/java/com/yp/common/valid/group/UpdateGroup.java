@@ -6,12 +6,14 @@
  * 版权所有，侵权必究！
  */
 
-package com.yp.common.validator.group;
+package com.yp.common.valid.group;
 
 /**
- * 七牛
+ * 更新数据 Group
  *
  * @author Mark sunlightcs@gmail.com
  */
-public interface QiniuGroup {
+
+public interface UpdateGroup {
+
 }

@@ -6,7 +6,7 @@
  * 版权所有，侵权必究！
  */
 
-package com.yp.common.validator;
+package com.yp.common.valid;
 
 import com.yp.common.utils.RRException;
 import org.apache.commons.lang.StringUtils;

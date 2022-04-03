@@ -9,9 +9,9 @@
 package com.yp.common.utils;
 
 
-import com.yp.common.validator.group.AliyunGroup;
-import com.yp.common.validator.group.QcloudGroup;
-import com.yp.common.validator.group.QiniuGroup;
+import com.yp.common.valid.group.AliyunGroup;
+import com.yp.common.valid.group.QcloudGroup;
+import com.yp.common.valid.group.QiniuGroup;
 
 import java.util.Optional;
 import java.util.stream.Stream;
