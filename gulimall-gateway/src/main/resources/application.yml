@@ -9,18 +9,23 @@ spring:
           filters:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
 
-
         - id: third_party_route
           uri: lb://gulimall-third-party
           predicates:
             - Path=/api/thirdparty/**
           filters:
             - RewritePath=/api/thirdparty/(?<segment>.*),/$\{segment}
+#        - id: product_route
+#            uri: lb://gulimall-product
+#            predicates:
+#              - Path=/api/product/**
+#            filters:
+#              - RewritePath=/api/(?<segment>.*),/$\{segment}
 
         - id: admin_route
-          uri: lb://renren-fast    # 以负载均衡的方式转发到//localhost:8080
+          uri: lb://renren-fast
           predicates:
-            - Path=/api/**          # 匹配前端发送过来的请求路径
+            - Path=/api/**
           filters:
             - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
 
