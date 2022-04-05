@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.yp.gulimall.product.vo.AttrGroupRelationVo;
 import com.yp.gulimall.product.vo.AttrRespVo;
 import com.yp.gulimall.product.vo.AttrVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,18 @@ public class AttrController {
     @Autowired
     private AttrService attrService;
 
-    @GetMapping("/base/list/{catelogId}")
+    /**
+     * 过去到属性的列表
+     * @param params
+     * @param catelogId
+     * @param type
+     * @return
+     */
+    @GetMapping("/{attrType}/list/{catelogId}")
     public R baseAttrList(@RequestParam Map<String, Object> params,
-                          @PathVariable("catelogId") Long catelogId){
-        PageUtils page =attrService.queryBaseAttrPage(params, catelogId);
+                          @PathVariable("catelogId") Long catelogId,
+                          @PathVariable("attrType") String type){
+        PageUtils page =attrService.queryBaseAttrPage(params, catelogId, type);
         return R.ok().put("page", page);
     }
 
@@ -70,13 +79,14 @@ public class AttrController {
         return R.ok();
     }
 
+
     /**
      * 修改
      */
     @RequestMapping("/update")
     //@RequiresPermissions("product:attr:update")
-    public R update(@RequestBody AttrEntity attr){
-		attrService.updateById(attr);
+    public R update(@RequestBody AttrVo attr){
+		attrService.updateAttr(attr);
 
         return R.ok();
     }
@@ -88,7 +98,6 @@ public class AttrController {
     //@RequiresPermissions("product:attr:delete")
     public R delete(@RequestBody Long[] attrIds){
 		attrService.removeByIds(Arrays.asList(attrIds));
-
         return R.ok();
     }
 

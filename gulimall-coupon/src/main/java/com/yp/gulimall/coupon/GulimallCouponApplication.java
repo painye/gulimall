@@ -16,7 +16,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author pan
  * @date 2022/3/28 21:02
  */
-
+@EnableFeignClients("com.yp.gulimall.coupon.feign")
 @SpringBootApplication
 @EnableDiscoveryClient
 public class GulimallCouponApplication {

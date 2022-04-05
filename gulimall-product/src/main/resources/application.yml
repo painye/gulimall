@@ -28,3 +28,13 @@ mybatis-plus:
 
 server:
   port: 10001
+  max-http-header-size: 20480
+
+logging:
+  level:
+    com.yp.gulimall: debug
+feign:
+  hystrix:
+    enabled: false
+
+

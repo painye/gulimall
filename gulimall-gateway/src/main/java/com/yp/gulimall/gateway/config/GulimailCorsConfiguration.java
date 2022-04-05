@@ -30,6 +30,9 @@ public class GulimailCorsConfiguration {
         corsConfiguration.addAllowedOrigin("*");
         corsConfiguration.setAllowCredentials(true);
 
+        // 配置前端js允许访问的自定义响应头
+        corsConfiguration.addExposedHeader("setToken");
+
         source.registerCorsConfiguration("/**",corsConfiguration);
         return new CorsWebFilter(source);
     }

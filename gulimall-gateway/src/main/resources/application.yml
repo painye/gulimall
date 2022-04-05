@@ -1,6 +1,10 @@
 spring:
   cloud:
     gateway:
+      discovery:
+          locator:
+            enabled: true
+            lower-case-service-id: true
       routes:
         - id: product_route
           uri: lb://gulimall-product
@@ -21,6 +25,13 @@ spring:
 #              - Path=/api/product/**
 #            filters:
 #              - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: member_route
+          uri: lb://gulimall-member
+          predicates:
+            - Path=/api/member/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
 
         - id: admin_route
           uri: lb://renren-fast

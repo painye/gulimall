@@ -41,9 +41,9 @@ public class GulimallExceptionControllerAdvice {
         return R.error(BizCodeEnum.VALID_EXCEPTION.getCode(), BizCodeEnum.VALID_EXCEPTION.getMsg()).put("data", errorMap);
     }
 
-    @ExceptionHandler(value = Throwable.class)
-    public R handleException(Throwable throwable){
-
-        return R.error(BizCodeEnum.UNKNOW_EXCEPTION.getCode(), BizCodeEnum.UNKNOW_EXCEPTION.getMsg());
-    }
+//    @ExceptionHandler(value = Throwable.class)
+//    public R handleException(Throwable throwable){
+//
+//        return R.error(BizCodeEnum.UNKNOW_EXCEPTION.getCode(), BizCodeEnum.UNKNOW_EXCEPTION.getMsg());
+//    }
 }
