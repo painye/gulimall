@@ -40,7 +40,7 @@
         <dependency>
             <groupId>com.aliyun.oss</groupId>
             <artifactId>aliyun-sdk-oss</artifactId>
-            <version>3.10.2</version>
+            <version>3.15.0</version>
         </dependency>
 
         <!--nacos作为配置中心-->
